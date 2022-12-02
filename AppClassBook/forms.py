@@ -10,15 +10,8 @@ class EstudianteForm(forms.Form):
     libreta=forms.IntegerField()
     email=forms.EmailField()
 
-class TareasForm(forms.Form):
-    titulo=forms.CharField(max_length=50)
-    fechaDeEntrega=forms.DateField()
 
 class ProfesorForm(forms.Form):
     nombre=forms.CharField(max_length=50)
     apellido=forms.CharField(max_length=50)
     email=forms.EmailField()
-
-class ExamenesForm(forms.Form):
-    titulo=forms.CharField(max_length=50)
-    nota=forms.IntegerField()

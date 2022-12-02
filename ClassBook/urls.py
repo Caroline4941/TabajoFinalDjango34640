@@ -22,7 +22,5 @@ urlpatterns = [
     path("cursos/", cursos, name="cursos"),
     path("profesores/", profesores, name="profesores"),
     path("estudiantes/", estudiantes, name="estudiantes"),
-    path("tareas/",tareas, name="tareas"),
-    path("examenes/",examenes, name="examenes"),
     path("", inicio, name="inicio"),
 ]

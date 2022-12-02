@@ -1,0 +1,40 @@
+{% extends "AppClassBook/herencia.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+<h1 class="mb-5">Conviértete en un profesional con nuestros cursos!</h1>
+
+{% endblock %}
+
+
+{% block pone_lo_que_quieras %}
+
+<h1>Profesores</h1>
+
+<form action="{% url 'profesores' %}" method="post"> {% csrf_token %}
+
+<table>
+
+    {{ form3.as_table }}
+    
+</table>
+
+<input type="submit" value="Crear profesor">
+
+</form>
+
+{% endblock %}
+
+{% block texto_1%}
+                        
+{% endblock %}
+
+{% block texto_2 %}
+
+{% endblock %}
+
+{% block texto_3 %}
+
+{% endblock %}
