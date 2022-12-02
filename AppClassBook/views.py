@@ -1,18 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Curso
+from .models import Curso, Estudiante, Profesor, Tareas, Examenes
 from django.template import Template, Context, loader
-from AppClassBook import CursoForm
+from AppClassBook.forms import CursoForm, EstudianteForm
 
 
 # Create your views here.
 
-def curso(request):
 
-    matematicas=Curso(nombre="MatematicasII",camada=123456)
-    matematicas.save()
-
-    return render(request, "AppClassBook/curso.html")
 
 def inicio(request):
      return render(request,"AppClassBook/inicio.html")
@@ -23,28 +18,82 @@ def cursos(request):
           form=CursoForm(request.POST)
           if form.is_valid():
                informacion=form.cleaned_data
-               nombre=informacion["nombre"]
-               camada=informacion["camada"]
+               nombre1=informacion["nombre"]
+               camada1=informacion["camada"]
 
-               curso1=Curso(nombre,camada)
+               curso1=Curso(nombre=nombre1,camada=camada1)
                curso1.save()
-               return render(request,"AppClassBook/cursos.html")
+               return render(request,"AppClassBook/inicio.html")
      else:
           formulario=CursoForm()
 
-     return render(request,"AppClassBook/cursos.html", {"form":formulario})
+     return render(request,"AppClassBook/cursos.html", {"form1":formulario})
 
 def estudiantes(request):
-     return render(request,"AppClassBook/estudiantes.html")
+     if request.method=="POST":
+          form=EstudianteForm(request.POST)
+          if form.is_valid():
+               informacion1=form.cleaned_data
+               nombre2=informacion1["nombre"]
+               apellido1=informacion1["apellido"]
+               libreta1=informacion1["libreta"]
+               email1=informacion1["email"]
+
+               estudiante1=Estudiante(nombre=nombre2,apellido=apellido1,libreta=libreta1,email=email1)
+               estudiante1.save()
+               return render(request,"AppClassBook/inicio.html")
+     else:
+          formulario1=EstudianteForm()
+
+     return render(request,"AppClassBook/estudiantes.html", {"form2":formulario1})
 
 def profesores(request):
-     return render(request,"AppClassBook/profesores.html")
+     if request.method=="POST":
+          form=CursoForm(request.POST)
+          if form.is_valid():
+               informacion=form.cleaned_data
+               nombre1=informacion["nombre"]
+               camada1=informacion["camada"]
+
+               curso1=Curso(nombre=nombre1,camada=camada1)
+               curso1.save()
+               return render(request,"AppClassBook/inicio.html")
+     else:
+          formulario=CursoForm()
+
+     return render(request,"AppClassBook/cursos.html", {"form1":formulario})
 
 def tareas(request):
-     return render(request,"AppClassBook/tareas.html")
+     if request.method=="POST":
+          form=CursoForm(request.POST)
+          if form.is_valid():
+               informacion=form.cleaned_data
+               nombre1=informacion["nombre"]
+               camada1=informacion["camada"]
+
+               curso1=Curso(nombre=nombre1,camada=camada1)
+               curso1.save()
+               return render(request,"AppClassBook/inicio.html")
+     else:
+          formulario=CursoForm()
+
+     return render(request,"AppClassBook/cursos.html", {"form1":formulario})
 
 def examenes(request):
-     return render(request,"AppClassBook/examenes.html")
+     if request.method=="POST":
+          form=CursoForm(request.POST)
+          if form.is_valid():
+               informacion=form.cleaned_data
+               nombre1=informacion["nombre"]
+               camada1=informacion["camada"]
+
+               curso1=Curso(nombre=nombre1,camada=camada1)
+               curso1.save()
+               return render(request,"AppClassBook/inicio.html")
+     else:
+          formulario=CursoForm()
+
+     return render(request,"AppClassBook/cursos.html", {"form1":formulario})
 
 
 

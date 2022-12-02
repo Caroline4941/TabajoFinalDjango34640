@@ -11,11 +11,25 @@
 
 {% block pone_lo_que_quieras %}
 
+<h1>Cursos</h1>
+
+<form action="{% url 'cursos' %}" method="post"> {% csrf_token %}
+
 <table>
 
-    {{ form.as_table }}
-
+    {{ form1.as_table }}
+    
 </table>
+
+<input type="submit" value="Crear curso">
+
+</form>
+
+
+
+
+
+
 
 
 

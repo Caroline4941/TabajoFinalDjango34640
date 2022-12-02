@@ -19,7 +19,6 @@ from AppClassBook.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("curso/", curso, name="curso"),
     path("cursos/", cursos, name="cursos"),
     path("profesores/", profesores, name="profesores"),
     path("estudiantes/", estudiantes, name="estudiantes"),
