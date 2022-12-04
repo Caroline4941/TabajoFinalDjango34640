@@ -65,7 +65,19 @@ def profesores(request):
      return render(request,"AppClassBook/profesores.html", {"form3":formulario})
 
 
+def BusquedaEstudiante(request):
+     return render(request, "AppClassBook/BusquedaEstudiante.html")
 
+def buscar(request):
+
+     if request.GET["libreta"]:
+          libreta=request.GET['libreta']
+          estudiantes=Estudiante.objects.filter(libreta__icontains=libreta)
+          return render(request, "AppClassBook/ResultadoBusquedaEst.html", {"estudiantes":estudiantes, "libreta":libreta })
+
+     else:
+          respuesta="No enviaste datos"
+     return HttpResponse(respuesta) 
 
 
 

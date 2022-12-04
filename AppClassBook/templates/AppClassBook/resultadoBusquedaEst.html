@@ -11,29 +11,20 @@
 
 {% block pone_lo_que_quieras %}
 
-<h1>Estudiantes</h1>
+<h1>Resultado de Busqueda!</h1>
+<p>Estamos buscando el: {{libreta}}</p>
+<ul>
+    {% for estudiante in estudiantes %}
+        <li>{{estudiante.nombre}}</li>
+        <li>{{estudiante.libreta}}</li>
+        <br>
+    {% endfor %}
 
-<form action="{% url 'estudiantes' %}" method="post"> {% csrf_token %}
-
-<table>
-
-    {{ form2.as_table }}
-    
-</table>
-
-<input type="submit" value="Crear estudiante">
-
-</form>
+</ul>
 
 {% endblock %}
 
-
-
 {% block texto_1%}
-
-<h1>Busqueda de estudiante:</h1>
-
-<a class="btn btn-primary" href="{% url 'BusquedaEstudiante' %}">Buscar Estudiante</a>
                         
 {% endblock %}
 

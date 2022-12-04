@@ -11,29 +11,18 @@
 
 {% block pone_lo_que_quieras %}
 
-<h1>Estudiantes</h1>
 
-<form action="{% url 'estudiantes' %}" method="post"> {% csrf_token %}
+<h1>Busqueda de Estudiantes</h1>
 
-<table>
-
-    {{ form2.as_table }}
-    
-</table>
-
-<input type="submit" value="Crear estudiante">
+<form action="/AppClassBook/buscar/" method="GET">
+    <input type="number" name="libreta" id="libreta">
+    <input type="submit" value="buscar"> 
 
 </form>
 
 {% endblock %}
 
-
-
 {% block texto_1%}
-
-<h1>Busqueda de estudiante:</h1>
-
-<a class="btn btn-primary" href="{% url 'BusquedaEstudiante' %}">Buscar Estudiante</a>
                         
 {% endblock %}
 
@@ -44,3 +33,4 @@
 {% block texto_3 %}
 
 {% endblock %}
+
